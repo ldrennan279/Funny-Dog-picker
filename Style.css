@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Crafty Girls', cursive;
+}
+/* ************ */
+/* *Main Theme* */
+/* ************ */
+:root{
+    --main: #C52A7E;
+    --sub: #AB6089;
+    --text: white;
+    --border: #A919DC;
+    --shadow: black;
+}
+.button, 
+.model-inner{
+    box-shadow: 2px 4px 4px var(--shadow);
+}
+.button, 
+.model-inner, 
+.dog-pic{
+    border: none;
+    border-radius: 10px;
+}
+.button:hover, .button:focus{
+    background-color: var(--main);
+    opacity: 1;
+    border: solid 3px var(--border);
+}
+
+/* ***************** */
+/* *Element Styling* */
+/* ***************** */
+.container{
+    height: 100vh;
+    background-image: url(images/dogwallpaper1.jpg);
+    background-size: 100%;
+    background-color: rgba(255,255,255,0.4);
+    background-blend-mode: overlay;
+}
+.header{
+    background-color: var(--main);
+    height: auto;
+    padding: 15px;
+}
+.header h1{
+    color: var(--text);
+    font-size: 2.5em;
+}
+.dogLogo{
+    width: 139px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    margin-top: 24px;
+}
+.sub-header{
+    background-color: var(--sub);
+    color: var(--text);
+    font-size: 14px;
+    padding: 5px;
+}
+.radio-selection{
+    display: flex;
+    padding: 5px;
+}
+.radio-selection label{
+    padding-left: 5px;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    padding: 5px;
+    width: 100vw;
+    text-align: center;
+    color: grey;
+}
+.dogpick{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.button{
+    padding: 5px 10px;
+    font-size: 22px;
+    margin: 5px;
+    background-color: var(--main);
+    opacity: 0.80;
+    color: var(--text);
+    width: 150px;
+    height: 100px;
+    text-align: center;
+}
+
+.model{
+    display: block;
+    position: absolute;
+    top: 30vh;
+    max-width: 80vw;
+    display: none;
+}
+.model-inner{
+    background-color: var(--sub);
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.close-btn{
+    position: absolute;
+    color: var(--text);
+    padding: 15px 20px;
+    right: 10px;
+    text-shadow: 2px 2px 7px var(--shadow);
+}
+.dog-pic{
+    margin: 15px 15px 20px ;
+}
+
+/* ******************* */
+/* *Page Size Styling* */
+/* ******************* */
