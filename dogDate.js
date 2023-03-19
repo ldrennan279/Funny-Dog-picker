@@ -1,6 +1,6 @@
 
 
-const dogData = [
+export const dogInfo = [
     {
         name: "funnyDog1", 
         imageName: "images/funnyDog1.jpg",
@@ -266,3 +266,5 @@ const dogData = [
         id: "dog-pic"
     }
 ]
+
+
