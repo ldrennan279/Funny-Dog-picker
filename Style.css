@@ -101,7 +101,6 @@
 }
 
 .model{
-    display: block;
     position: absolute;
     top: 30vh;
     max-width: 80vw;

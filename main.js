@@ -1,14 +1,15 @@
 import { dogInfo } from "/dogData.js"
 
 const dogList = document.getElementById("dogpick")
+const model = document.getElementById("model")
 
 function getEmotions(dogs){
     const emotionArray =[]
     for(let dog of dogs){
         for(let emotion of dog.type){
-            if(emotionArray.includes(dog.type)){
+            if(emotionArray.includes(emotion)){
                 
-            } else if(!emotionArray.includes(dog.type)){
+            } else if(!emotionArray.includes(emotion)){
                 emotionArray.push(emotion)
             }
         }
@@ -21,11 +22,18 @@ function renderDogMoods(dogs){
     const moods = getEmotions(dogs)
     for (let mood of moods){
         displayBtn += `
-            <p class="button">
-                <span class="btnTextStyle">${mood}</span>
+            <p class="button" id="${mood}">
+                <span class="btnTextStyle" id="${mood}">
+                    ${mood}
+                </span>
             </p>`
     }
     dogList.innerHTML = displayBtn
 }
 
 renderDogMoods(dogInfo)
+
+dogList.addEventListener("click", function(e){
+    console.log(e.target.id)
+})
+
