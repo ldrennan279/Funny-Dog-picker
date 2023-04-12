@@ -96,8 +96,8 @@
     background-color: var(--main);
     opacity: 0.80;
     color: var(--text);
-    width: 130px;
-    height: 70px;
+    width: 150px;
+    height: 90px;
 }
 .model{
     display: none;

@@ -41,23 +41,25 @@ document.addEventListener("click", function(e){
         displayModel() 
     }
 })
-   
-
-// fix function to push only gifs images to array if radio is checked
-
-
 
 function getDogImage(dogs){
+    const isGif = document.getElementById('gifs').checked
+    const dogImage = dogs.filter((dog)=>{
+            if(isGif){
+                return dog.type.includes(selectedMood) && dog.isGif
+            } else {
+                return dog.type.includes(selectedMood)
+            }
+        })
     const dogImageArray = []
-    for (let dog of dogs){
-        for (let emotion of dog.type)
-        if(emotion === selectedMood){
+        for(let dog of dogImage){
             dogImageArray.push(dog.imageName)
         }
-    }
-    const randomImage = Math.floor(Math.random() * dogImageArray.length)
-    return dogImageArray[randomImage]
+        const randomImage = Math.floor(Math.random() * dogImage.length)
+        return dogImageArray[randomImage]
 }
+
+// disable buttons when image is open and enable buttons when iamge is closed
 
 function displayModel(){
     const dogImage = getDogImage(dogInfo)
@@ -66,7 +68,6 @@ function displayModel(){
     <img src="/${dogImage}" width="300px">
     `
     model.style.display = "block"
-    
 }
 
 document.addEventListener('click', (e)=>{
