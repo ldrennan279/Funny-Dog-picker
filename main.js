@@ -3,6 +3,7 @@ import { dogInfo } from "/dogData.js"
 const dogList = document.querySelector(".dogpick")
 const model = document.getElementById("model")
 const modelInner = document.getElementById("model-inner")
+
 let selectedMood = ""
 
 function getEmotions(dogs){
@@ -35,11 +36,15 @@ function renderDogMoods(dogs){
 renderDogMoods(dogInfo)
 
 
+
 document.addEventListener("click", function(e){
     if(e.target.className === "button"){ 
         selectedMood = e.target.id
+        document.getElementsByClassName("button").disabled = true
         displayModel() 
+        
     }
+    
 })
 
 function getDogImage(dogs){
@@ -59,20 +64,23 @@ function getDogImage(dogs){
         return dogImageArray[randomImage]
 }
 
-// disable buttons when image is open and enable buttons when iamge is closed
+const btnCover = document.getElementById("btn-cover")
 
 function displayModel(){
     const dogImage = getDogImage(dogInfo)
+    model.style.display = "block"
     modelInner.innerHTML = `
     <h2 class="close-btn" id="close-btn">X</h2>
     <img src="/${dogImage}" width="300px">
     `
-    model.style.display = "block"
+    btnCover.style.display = "block"
 }
 
 document.addEventListener('click', (e)=>{
     if(e.target.id === "close-btn"){
         model.style.display = "none"
+        btnCover.style.display = "none"
+        document.getElementById("gifs").checked = false;
     }
     
 })
