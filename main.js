@@ -3,8 +3,9 @@ import { dogInfo } from "/dogData.js"
 const dogList = document.querySelector(".dogpick")
 const model = document.getElementById("model")
 const modelInner = document.getElementById("model-inner")
-
+const btnCover = document.getElementById("btn-cover")
 let selectedMood = ""
+
 
 function getEmotions(dogs){
     const emotionArray =[]
@@ -36,17 +37,6 @@ function renderDogMoods(dogs){
 renderDogMoods(dogInfo)
 
 
-
-document.addEventListener("click", function(e){
-    if(e.target.className === "button"){ 
-        selectedMood = e.target.id
-        document.getElementsByClassName("button").disabled = true
-        displayModel() 
-        
-    }
-    
-})
-
 function getDogImage(dogs){
     const isGif = document.getElementById('gifs').checked
     const dogImage = dogs.filter((dog)=>{
@@ -64,8 +54,6 @@ function getDogImage(dogs){
         return dogImageArray[randomImage]
 }
 
-const btnCover = document.getElementById("btn-cover")
-
 function displayModel(){
     const dogImage = getDogImage(dogInfo)
     model.style.display = "block"
@@ -75,6 +63,13 @@ function displayModel(){
     `
     btnCover.style.display = "block"
 }
+
+document.addEventListener("click", function(e){
+    if(e.target.className === "button"){ 
+        selectedMood = e.target.id
+        displayModel() 
+    }
+})
 
 document.addEventListener('click', (e)=>{
     if(e.target.id === "close-btn"){
